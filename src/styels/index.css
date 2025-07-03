@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 26 54 93; /* #1a365d */
+    --color-secondary: 56 178 172; /* #38b2ac */
+    --color-accent: 245 101 101; /* #f56565 */
+    --color-background: 247 250 252; /* #f7fafc */
+    --color-text: 45 55 72; /* #2d3748 */
+  }
+
+  body {
+    @apply text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-900;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-900 dark:text-white;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary/90 focus:ring-primary/50;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary text-white hover:bg-secondary/90 focus:ring-secondary/50;
+  }
+
+  .btn-outline {
+    @apply btn border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md p-6;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 
+    bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+    focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+  }
+
+  .drop-zone {
+    @apply border-2 border-dashed border-gray-300 dark:border-gray-700 
+    rounded-xl p-8 text-center cursor-pointer transition-all duration-200
+    hover:border-primary dark:hover:border-primary;
+  }
+
+  .drop-zone-active {
+    @apply border-primary bg-primary/5;
+  }
+}
+
+/* Custom animations */
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: rgba(56, 178, 172, 0.5);
+  }
+  50% {
+    border-color: rgba(56, 178, 172, 1);
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Progress bar animation */
+.progress-bar {
+  @apply h-2 bg-secondary rounded-full transition-all duration-300 ease-out;
+}
